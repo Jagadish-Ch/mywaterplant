@@ -1,0 +1,46 @@
+*{
+    box-sizing: border-box;
+}
+.form-visible{
+    display: block;
+    align-items: center;
+    justify-content: center;
+}
+.login-form{
+    padding: 5%;
+    margin-top: 20%;
+}
+.form-visible{
+    position: relative;
+}
+.login-input-form{
+    display: block;
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+}
+
+.login-title{
+    margin-left: 25%;
+    color: rgb(83, 88, 94);
+    
+    text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;
+    
+}
+
+@media screen and (max-width: 479px){
+    .login-form{
+        margin-top: 40em;
+        height: 40em;
+    }
+    .login-title{
+        margin-left: 30%;
+        font-size: 4em;
+    }
+    .btn{
+        display: block;
+        align-items: center;
+        justify-content: center;
+    }
+}
