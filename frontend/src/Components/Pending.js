@@ -58,6 +58,36 @@ const Pending = () => {
       totalPendingCans += (users[key].TotalCans-users[key].ReturnedCans);
     }
 
+    async function deleteUser(e, id) {
+  
+      try{
+    
+        await axios.delete(`${baseURL}/report/${id}`)
+        .then(() =>{
+          Swal.fire({
+            title:'Customer Deleted Successfully...!',
+            icon:'success',
+            showConfirmButton:false,
+            timer:1000
+          })
+          props.setIsUpdated(true);
+        })
+        
+      }
+      catch(error){
+        if(error.name==='AxiosError' && error.code!=='ERR_BAD_RESPONSE'){
+          e.preventDefault();
+          console.log(error);
+          Swal.fire({
+            title:'Deleted Failed...!',
+            text:'Check the Console for Error',
+            icon:'error',
+            showConfirmButton:false,
+            timer:1000
+          })
+        }
+      }
+    }
   return (
     <div>
       <center>
