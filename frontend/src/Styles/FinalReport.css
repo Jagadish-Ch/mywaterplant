@@ -6,10 +6,10 @@
     font-weight: 600;
 }
 
-@media screen and (max-width: 479px){
+@media screen and (max-width: 600px){
     .scroll-cans{
         padding: 2%;
-        margin: 20% 0% -2% 0%;
+        left: 0px;
         color: whitesmoke;
         background-color: black;
         font-size: 2em;

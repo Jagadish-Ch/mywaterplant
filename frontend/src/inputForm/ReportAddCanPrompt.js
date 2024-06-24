@@ -82,7 +82,7 @@ useEffect(() => {
 
   
   return (
-    <div>
+    
     <div id="prompt">
         <form>
         <div className="input-block">
@@ -127,7 +127,7 @@ useEffect(() => {
           </div>
         </form>
     </div>
-    </div>
+    
   )
 }
 

@@ -10,7 +10,7 @@ import { Dialog, DialogContent } from '@mui/material';
 import ReportAddCanPrompt from '../inputForm/ReportAddCanPrompt';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
-
+import '../Styles/MBLCardData.css'
 
 
 const Report = () => {
@@ -159,11 +159,13 @@ const Report = () => {
     <div>
       <center>
         <NavigationButtons/>
+        <br/>
         <h1 className='report-pg-title'>Water Plant Report</h1><br></br>
         <SearchBar Filter={Filter} Option={Option} setOption={setOption} />
+        <br/>
         <div id="prompt-form">
         <Dialog open={openForm} onClose={handleClose}>
-          <h2 className='order-prompt-title' style={{paddingLeft:'13%'}}>Add {` ${waterType} `} Can</h2>
+          <h1 className='order-prompt-title' style={{paddingLeft:'13%'}}>Add {` ${waterType} `} Can</h1>
           <DialogContent >
             <ReportAddCanPrompt 
               id={id}
@@ -174,7 +176,7 @@ const Report = () => {
         </Dialog>
         </div>
         <div className='report-table-data'>
-        <table className='report-table'>
+        <table className='report-table table'>
           <thead>
             
             <tr>
@@ -207,27 +209,27 @@ const Report = () => {
               
             <tr key={i}>
               
-              <td className='date-time'>{user.DateTime}</td>
-              <td>{user.Name}</td>
-              <td>{user.MobileNo}</td>
-              <td>{user.Address}</td>
-              <td>{user.WaterType +" "} Water</td>
-              <td style={{backgroundColor:"rgb(157, 246, 168)"}}>{user.CanNo.join(", ")}</td>
-              <td style={{backgroundColor:"rgb(157, 246, 168)"}}>{user.TotalCans}</td>
-              <td style={{backgroundColor:"rgb(243, 248, 173)"}}>{user.ReturnedCanNo.join(", ")}</td>
-              <td style={{backgroundColor:"rgb(243, 248, 173)"}}>{user.ReturnedCans}</td>
-              <td style={{backgroundColor:"rgb(248, 173, 173)"}}>{PendingCanNo.join(", ")}</td>
-              <td style={{backgroundColor:"rgb(248, 173, 173)"}}>{RemainingCans}</td>
-              <td>{user.Amount}</td>
-              <td>{user.PaidOrNot}</td>
-              <td><Link to={`/report/${user._id}`}><button className='action green-btn' type='button' onClick={() => 
+              <td className='tbl-header date-time.'>{user.DateTime}</td>
+              <td className='tbl-data' aria-label='Name'>{user.Name}</td>
+              <td className='tbl-data' aria-label='Mobile No.'>{user.MobileNo}</td>
+              <td className='tbl-data' aria-label='Address'>{user.Address}</td>
+              <td className='tbl-data' aria-label='Water Type'>{user.WaterType +" "} Water</td>
+              <td className='tbl-data' aria-label='ఇచ్చిన క్యాన్ నంబర్' style={{backgroundColor:"rgb(157, 246, 168)"}}>{user.CanNo.join(", ")}</td>
+              <td className='tbl-data' aria-label='ఇచ్చిన క్యాన్లు' style={{backgroundColor:"rgb(157, 246, 168)"}}>{user.TotalCans}</td>
+              <td className='tbl-data' aria-label='తిరిగి ఇచ్చిన క్యాన్ నంబర్' style={{backgroundColor:"rgb(243, 248, 173)"}}>{user.ReturnedCanNo.join(", ")}</td>
+              <td className='tbl-data' aria-label='తిరిగి ఇచ్చిన క్యాన్లు' style={{backgroundColor:"rgb(243, 248, 173)"}}>{user.ReturnedCans}</td>
+              <td className='tbl-data' aria-label='Pending క్యాన్ నంబర్' style={{backgroundColor:"rgb(248, 173, 173)"}}>{PendingCanNo.join(", ")}</td>
+              <td className='tbl-data' aria-label='Pending క్యాన్లు' style={{backgroundColor:"rgb(248, 173, 173)"}}>{RemainingCans}</td>
+              <td className='tbl-data' aria-label='ఇచ్చిన Amount'>{user.Amount}</td>
+              <td className='tbl-data' aria-label='Paid / NotPaid'>{user.PaidOrNot}</td>
+              <td className='action-btn'><Link to={`/report/${user._id}`}><button className='action green-btn tbl-save-btn' type='button' onClick={() => 
                             openPromptForm(
                               user._id,
                               user.WaterType,
                             )}>
                             Add
                   </button></Link><br/><br/>
-                  <Link to={`/report/${user._id}`}><button className="action red-btn" type="button" onClick={(e) => deleteUser(e, user._id)}>Delete</button></Link>
+                  <Link to={`/report/${user._id}`}><button className="action red-btn tbl-delete-btn" type="button" onClick={(e) => deleteUser(e, user._id)}>Delete</button></Link>
               </td> 
             </tr>
             
@@ -237,12 +239,12 @@ const Report = () => {
       </div>
       </center>
       <ScrollToTop/>
-      <SMTables location='home' 
+      {/*<SMTables location='home' 
       openPromptForm={openPromptForm} 
       headers={headers} 
       apiHeaders={apiHeaders} 
       records={records}
-      setIsUpdated={setIsUpdated}/>
+      setIsUpdated={setIsUpdated}/>*/}
     </div>
       
   )

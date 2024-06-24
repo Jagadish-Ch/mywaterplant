@@ -10,9 +10,9 @@ const SearchBar = (props) => {
     <div>
       <div className="searchBox">
         <select className='dropdown searchInput' value={props.Option} onChange={handleInput}>
-          <option value='CanNo'>CanNo</option>
-          <option value='Date'>Date</option>
-          <option value='All'>All</option>
+          <option className='dd-body' value='CanNo'>CanNo</option>
+          <option className='dd-body' value='Date'>Date</option>
+          <option className='dd-body' value='All'>All</option>
         </select>
         <input className="searchInput" type="text" name="" onChange={props.Filter} placeholder="Search"/>
         

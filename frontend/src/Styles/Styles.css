@@ -157,8 +157,16 @@ img.menu-icon{
   }
 }
 /* Nav Buttons */
-@media screen and (max-width: 479px){
-  .empty-space.order{
+@media screen and (max-width: 600px){
+  .nav-bar{
+    display: none;
+  }
+  .btn-2{
+    width: 35vw;
+    height: 8vh;
+    font-size: 7vw;
+  }
+  /*.empty-space.order{
     margin-top: -25%;
   }
   .nav-bar{
@@ -189,5 +197,5 @@ img.menu-icon{
     position: fixed;
     display: block;
     margin: 25px 12px 12px 82%;
-  }
+  }*/
 }

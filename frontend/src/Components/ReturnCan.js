@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, {useState, useEffect} from 'react';
 import {Dialog, DialogContent} from "@mui/material";
 import NavigationButtons from './NavigationButtons';
+
 import { ReturnCanFunctions} from '../inputForm/ReturnCanFunctions';
 import '../Styles/ReturnCan.css';
 import { baseURL } from './baseURL';
@@ -17,6 +18,7 @@ const  ReturnCan = () => {
 
   const navigate = useNavigate()
   const [_id, set_Id] = useState('')
+  //
   const [notReturnedCans,setNotReturnedCans] = useState(0)
   const [waterType, setWaterType] = useState("")
   const [Option, setOption] = useState("CanNo")
@@ -118,15 +120,17 @@ const  ReturnCan = () => {
 
   return (
     <div className='return-pg'>
+      <div>
       <center>
         <NavigationButtons/>
-        <h1 className='title'>Return a Can</h1><br></br>
+        <br/>
+        <h2 className='title'> క్యాన్లు తిరిగి ఇవ్వని వారు</h2><br></br>
         <SearchBar Filter={Filter} Option={Option} setOption={setOption} />
-
+        <br/>
         <div id="prompt-form">
         <Dialog open={openForm} onClose={handleClose}>
         
-          <h2 className='order-prompt-title' style={{paddingLeft:'13%'}}>Return {` ${waterType} `} Can</h2>
+          <h1 className='order-prompt-title' style={{paddingLeft:'13%'}}>Return {` ${waterType} `} Can</h1>
           <DialogContent >
             <ReturnCanFunctions 
               id={_id}
@@ -138,14 +142,14 @@ const  ReturnCan = () => {
         </Dialog>
         </div>
 
-        <div className='table'>
-          <br/><h2 className='table-title'>Not Returned Can's Data</h2>
+        {/*<div className='return-table'>*/}
+          <br/>
           <div className='report-table-data'>
-            <table className='report-table'>
+            <table className='report-table table'>
               <thead>
                 
                 <tr>
-                  <th>Date - Time</th>
+                  <th className='date-time'>Date - Time</th>
                   <th>Name</th>
                   <th>Mobile No</th>
                   <th>Water Type</th>
@@ -153,48 +157,77 @@ const  ReturnCan = () => {
                   <th>Pending క్యాన్లు</th>
                   <th>Paid / Not Paid</th>
                   <th></th>
-                  <th></th>
-                </tr>
+                </tr> 
+                
               </thead>
               <tbody>
               {records.map((user) => {
                 const PendingCanNo =
                 (user.CanNo).filter((element) => !(user.ReturnedCanNo).includes(element));
-                if(user.WaterType==="Cooling"){
-                  if(user.PaidOrNot==="Amount Not Paid" || user.TotalCans!=user.ReturnedCans){
-                    const NotReturnedCans = user.TotalCans-user.ReturnedCans;
+                //
+                const NotReturnedCans = user.TotalCans-user.ReturnedCans;
+                    //
                     return (
                       
-                        <tr key={user._id}>
-                          <td>{`${user.DateTime[0].slice(0,10)}`}<br/>{user.DateTime[0].slice(12,25)}</td>
-                          <td>{user.Name}</td>
-                          <td>{user.MobileNo}</td>
-                          <td>{user.WaterType}</td>
-                          <td style={{backgroundColor:"rgb(248, 173, 173)"}}>{PendingCanNo.join(", ")}</td>
-                          <td style={{backgroundColor:"rgb(248, 173, 173)"}}>{NotReturnedCans}</td>
-                          <td>{user.PaidOrNot}</td>
-                          <td><Link to={`/returncan/${user._id}`}><button className='action green-btn' type='button' onClick={() => 
+                        <tr key={user._id} className='e-space'>
+                          <td className='tbl-header e-space'>{`${user.DateTime[0].slice(0,10)}`}<br/>{user.DateTime[0].slice(12,25)}</td>
+                          <td className='tbl-data e-space' aria-label="Name">{user.Name}</td>
+                          <td className='tbl-data e-space' aria-label="Mobile No.">{user.MobileNo}</td>
+                          <td className='tbl-data e-space' aria-label="Water Type">{user.WaterType}</td>
+                          <td className='tbl-data e-space' aria-label="Pending క్యాన్ నంబర్" style={{backgroundColor:"rgb(248, 173, 173)"}}>{PendingCanNo.join(", ")}</td>
+                          <td className='tbl-data e-space' aria-label="Pending క్యాన్లు" style={{backgroundColor:"rgb(248, 173, 173)"}}>{NotReturnedCans}</td>
+                          <td className='tbl-data e-space' aria-label="Paid / Not Paid">{user.PaidOrNot}</td>
+                          <td className='action-btn' ><Link to={`/returncan/${user._id}`}><button className='action green-btn tbl-save-btn' type='button' onClick={() => 
                             openPromptForm(
                               user._id,
                               user.WaterType,
                               NotReturnedCans,
                             )}>
-                            Edit
-                          </button></Link></td>
-                          <td><button className='action red-btn' type="submit" onClick={(e) => deleteUser(e,user._id)}>Delete</button></td>
+                            Return
+                          </button></Link><br/><br/>
+                          <button className='action red-btn tbl-delete-btn' type="submit" onClick={(e) => deleteUser(e,user._id)}>Delete</button></td>
+                          
+                        </tr>
+                      
+                    );
+                /*if(user.WaterType==="Cooling"){
+                  if(user.PaidOrNot==="Amount Not Paid" || user.TotalCans!=user.ReturnedCans){
+                    const NotReturnedCans = user.TotalCans-user.ReturnedCans;
+                    //
+                    return (
+                      
+                        <tr key={user._id}>
+                          <td className='tbl-header'>{`${user.DateTime[0].slice(0,10)}`}<br/>{user.DateTime[0].slice(12,25)}</td>
+                          <td className='tbl-data' aria-label="Name">{user.Name}</td>
+                          <td className='tbl-data' aria-label="Mobile No.">{user.MobileNo}</td>
+                          <td className='tbl-data' aria-label="Water Type">{user.WaterType}</td>
+                          <td className='tbl-data' aria-label="Pending క్యాన్ నంబర్" style={{backgroundColor:"rgb(248, 173, 173)"}}>{PendingCanNo.join(", ")}</td>
+                          <td className='tbl-data' aria-label="Pending క్యాన్లు" style={{backgroundColor:"rgb(248, 173, 173)"}}>{NotReturnedCans}</td>
+                          <td className='tbl-data' aria-label="Paid / Not Paid">{user.PaidOrNot}</td>
+                          <td className='action-btn' ><Link to={`/returncan/${user._id}`}><button className='action green-btn tbl-save-btn' type='button' onClick={() => 
+                            openPromptForm(
+                              user._id,
+                              user.WaterType,
+                              NotReturnedCans,
+                            )}>
+                            Return
+                          </button></Link><br/><br/>
+                          <button className='action red-btn tbl-delete-btn' type="submit" onClick={(e) => deleteUser(e,user._id)}>Delete</button></td>
+                          
                         </tr>
                       
                     );
                   }
-                }
+                }*/
               })}
               </tbody>
             </table>
           </div>
-        </div>
+        {/*</div>*/}
       </center>
+      </div>
       <ScrollToTop/>
-      <div className="lists-container">
+      {/*<div className="lists-container">
                 
         {records.map((row, i) => {
           if(row.WaterType==="Cooling"){
@@ -231,7 +264,7 @@ const  ReturnCan = () => {
             }
           }
         })}
-      </div>
+      </div>*/}
       
     </div>
   )

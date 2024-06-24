@@ -98,17 +98,18 @@ body {
     box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
   }
 
-  @media screen and (max-width: 479px){
+  @media screen and (max-width: 600px){
     #myVideo{
       height: 90%;
     }
     .default{
-      height: 4em;
-      width:12em;
-      font-size: 2em;
-      margin: 35px 3em;
+      min-height: 8vh;
+      min-width: 40vw;
+      font-size: 5.5vw;
     }
     .btns{
+      
       margin-top: 35em;
+      padding:30%
     }
   }

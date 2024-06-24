@@ -5,6 +5,7 @@ import { baseURL } from './baseURL';
 import SMTables from './SMTables';
 import ScrollToTop from './ScrollToTop';
 import SearchBar from './SearchBar';
+import '../Styles/MBLCardData.css'
 
 
 const Pending = () => {
@@ -61,11 +62,12 @@ const Pending = () => {
     <div>
       <center>
         <NavigationButtons/>
+        <br/>
         <h1 className='pending-pg-title order-title'>Pending Customers</h1>
         
         <SearchBar Filter={Filter} Option={Option} setOption={setOption} />
         <div className='report-table-data'>
-          <table className='report-table'>
+          <table className='report-table table'>
             <thead>
             <tr key="">
               <th>Name</th>
@@ -74,6 +76,7 @@ const Pending = () => {
               <th>Pending క్యాన్ నంబర్</th>
               <th>Pending క్యాన్లు</th>
               <th>కారణం</th>
+              <th></th>
             </tr>
             </thead>
 
@@ -94,12 +97,13 @@ const Pending = () => {
                   return (
                     
                     <tr key={user.id}>
-                      <td>{user.Name}</td>
-                      <td>{user.MobileNo}</td>
-                      <td>{user.WaterType}</td>
-                      <td style={{backgroundColor:"rgb(248, 173, 173)"}}>{PendingCanNo.join(", ")}</td>
-                      <td style={{backgroundColor:"rgb(248, 173, 173)"}}>{user.TotalCans-user.ReturnedCans}</td>
-                      <td>{Reason}<br/>{OneCanAmount}</td>
+                      <td className='tbl-header' aria-label='Name' >{user.Name}</td>
+                      <td className='tbl-data' aria-label='Mobile No.' >{user.MobileNo}</td>
+                      <td className='tbl-data' aria-label='Water Type' >{user.WaterType}</td>
+                      <td className='tbl-data' aria-label='Pending క్యాన్ నంబర్'  style={{backgroundColor:"rgb(248, 173, 173)"}}>{PendingCanNo.join(", ")}</td>
+                      <td className='tbl-data' aria-label='Pending క్యాన్లు'  style={{backgroundColor:"rgb(248, 173, 173)"}}>{user.TotalCans-user.ReturnedCans}</td>
+                      <td className='tbl-data reason-block' aria-label='కారణం' >{Reason}<br/>{OneCanAmount}</td>
+                      <td className='action-btn'><button className="action red-btn tbl-delete-btn" type="button" onClick={(e) => deleteUser(e, user._id)}>Delete</button></td>
                     </tr>
                     
                   );
@@ -109,12 +113,13 @@ const Pending = () => {
                   
                   return (
                   <tr key={user.id}>
-                    <td>{user.Name}</td>
-                    <td>{user.MobileNo}</td>
-                    <td>{user.WaterType}</td>
-                    <td style={{backgroundColor:"rgb(248, 173, 173)"}}>{PendingCanNo.join(", ")}</td>
-                    <td style={{backgroundColor:"rgb(248, 173, 173)"}}>{user.TotalCans-user.ReturnedCans}</td>
-                    <td>{Reason}<br/>{OneCanAmount}</td>
+                    <td className='tbl-header' aria-label='Name' >{user.Name}</td>
+                    <td className='tbl-data' aria-label='Mobile No.' >{user.MobileNo}</td>
+                    <td className='tbl-data' aria-label='Water Type' >{user.WaterType}</td>
+                    <td className='tbl-data' aria-label='Pending క్యాన్ నంబర్'  style={{backgroundColor:"rgb(248, 173, 173)"}}>{PendingCanNo.join(", ")}</td>
+                    <td className='tbl-data' aria-label='Pending క్యాన్లు'  style={{backgroundColor:"rgb(248, 173, 173)"}}>{user.TotalCans-user.ReturnedCans}</td>
+                    <td className='tbl-data reason-block' aria-label='' >{Reason}<br/>{OneCanAmount}</td>
+                    <td className='action-btn'><button className="action red-btn tbl-delete-btn" type="button" onClick={(e) => deleteUser(e, user._id)}>Delete</button></td>
                   </tr>
                   );
                 }
@@ -123,12 +128,13 @@ const Pending = () => {
                   const Reason = `ఇంకా ${PendingAmount}/- రూపాయలు ఇవ్వలేదు`;
                   return (
                     <tr key={user.id}>
-                      <td>{user.Name}</td>
-                      <td>{user.MobileNo}</td>
-                      <td>{user.WaterType}</td>
-                      <td style={{backgroundColor:"rgb(248, 173, 173)"}}>{PendingCanNo.join(", ")}</td>
-                      <td style={{backgroundColor:"rgb(248, 173, 173)"}}>{user.TotalCans-user.ReturnedCans}</td>
-                      <td>{Reason}<br/>{OneCanAmount}</td>
+                      <td className='tbl-header' aria-label='Name' >{user.Name}</td>
+                      <td className='tbl-data' aria-label='Mobile No.' >{user.MobileNo}</td>
+                      <td className='tbl-data' aria-label='Water Type' >{user.WaterType}</td>
+                      <td className='tbl-data' aria-label='Pending క్యాన్ నంబర్'  style={{backgroundColor:"rgb(248, 173, 173)"}}>{PendingCanNo.join(", ")}</td>
+                      <td className='tbl-data' aria-label='Pending క్యాన్లు'  style={{backgroundColor:"rgb(248, 173, 173)"}}>{user.TotalCans-user.ReturnedCans}</td>
+                      <td className='tbl-data reason-block' aria-label='కారణం' >{Reason}<br/>{OneCanAmount}</td>
+                      <td className='action-btn'><button className="action red-btn tbl-delete-btn" type="button" onClick={(e) => deleteUser(e, user._id)}>Delete</button></td>
                     </tr>
                   );
                 }
@@ -140,7 +146,7 @@ const Pending = () => {
 
       </center>
       <ScrollToTop/>
-      <SMTables headers={headers} apiHeaders={apiHeaders} records={records}/>
+      {/*<SMTables headers={headers} apiHeaders={apiHeaders} records={records}/>*/}
       
     </div>
   )

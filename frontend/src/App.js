@@ -8,6 +8,10 @@ import Report from './Components/Report';
 import Pending from './Components/Pending';
 import PageNotFound from './Components/PageNotFound';
 
+import MBLCardData from './Components/MBLCardData';
+import './Styles/MBLCardData.css';
+
+
 
 
 function App() {
@@ -26,8 +30,10 @@ function App() {
   
   return (
     <div>
+      
       <Routes>
-        <Route path='/' exact element={<Login setIsValidUser={setIsValidUser} />} />
+        <Route path="/" exact element={<MBLCardData/>} />
+        <Route path='/login' exact element={<Login setIsValidUser={setIsValidUser} />} />
         {isValidUser && <Route path="/home" exact element={<Home/>} />}
         {isValidUser && <Route path="/order" element={<Order/>} />}
         {isValidUser && <Route path="/returncan/:id" element={<ReturnCan/>} />}

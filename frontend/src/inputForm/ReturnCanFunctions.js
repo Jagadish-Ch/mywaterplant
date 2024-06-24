@@ -83,7 +83,6 @@ export const ReturnCanFunctions = (props) => {
   }
   
   return(
-    <div>
       <div id="prompt">
         <form>
         <div className="input-block">
@@ -129,6 +128,5 @@ export const ReturnCanFunctions = (props) => {
           </div>
         </form>
       </div>
-    </div>
   )
 }

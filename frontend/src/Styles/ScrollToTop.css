@@ -16,7 +16,7 @@
     border-radius: 100%;
 }
 
-@media screen and (max-width: 479px){
+@media screen and (max-width: 600px){
     .scroll-btn{
         display: block;
     }

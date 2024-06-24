@@ -109,10 +109,8 @@ const OrderPromptForm = () => {
     <center>
       <div className='empty-space order'>
       <div className='center-box order-pg1'>
-          <div>
-              <h1 className='order-title'>Order</h1>
-          </div>
           <div className='water-type-btn'>
+          <h1 className='order-title'>Order</h1>
             <button className="custom-btn btn-2" value="Cooling"onClick={()=>openPromptForm("Cooling")}>Cooling</button>
             <button className="custom-btn btn-2" value="Normal" onClick={()=>openPromptForm("Normal")}>Normal</button>
           </div>
@@ -127,7 +125,7 @@ const OrderPromptForm = () => {
           <h2 >{WaterType} Water</h2>
         </div>
         <DialogContent>
-        <form onSubmit={createUser} id="order-input-form">
+        <form onSubmit={createUser} id="order-input-form" className='prompt'>
 
           <div className="input-block">
             <input type="text" name="input-text"  required spellCheck="false" autoComplete="off"

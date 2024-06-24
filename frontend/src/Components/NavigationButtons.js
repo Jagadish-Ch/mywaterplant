@@ -2,9 +2,11 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import '../Styles/Styles.css'
+
 import menubaricon from '../ImagesIcon/menubaricon.png'
 import cansIcon from '../ImagesIcon/cansIcon.png'
 import FinalReport from './FinalReport';
+import AppBar from '../Components/AppBar';
 
 
 const NavigationButtons = () => {
@@ -28,7 +30,7 @@ const NavigationButtons = () => {
   const navigate=useNavigate();
   return (  
     <div>
-    <div className='nav-bar nav-menu'>
+    {/*<div className='nav-bar nav-menu'>
       <div className='logo'>
         <img className="cans-icon" src={cansIcon}/>
       </div>
@@ -43,8 +45,10 @@ const NavigationButtons = () => {
         <button className='menu-btn'><img className="menu-icon" src={menubaricon} onClick={openNavBtns}/></button>
       </div>
       
-    </div>
+    </div>*/}
+    <AppBar/>
     <FinalReport/>
+    
     </div>
   );
 }
