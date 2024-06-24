@@ -122,7 +122,7 @@ const OrderPromptForm = () => {
         <Dialog open={openForm} onClose={handleClose}>
         <div id='order-form'>
         <div className='prompt-title'>
-          <h2 >{WaterType} Water</h2>
+          <h1 >{WaterType} Water</h1>
         </div>
         <DialogContent>
         <form onSubmit={createUser} id="order-input-form" className='prompt'>

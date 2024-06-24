@@ -2,10 +2,12 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import NavigationButtons from './NavigationButtons';
 import { baseURL } from './baseURL';
+import Swal from 'sweetalert2';
 import SMTables from './SMTables';
 import ScrollToTop from './ScrollToTop';
 import SearchBar from './SearchBar';
 import '../Styles/MBLCardData.css'
+
 
 
 const Pending = () => {
@@ -58,37 +60,49 @@ const Pending = () => {
       totalPendingCans += (users[key].TotalCans-users[key].ReturnedCans);
     }
 
-    async function deleteUser(e, id) {
+// XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX DELETE USER XXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+async function deleteUser(e, id) {
   
-      try{
+  let Confirmation = "Do you want to Delete...!";
+  if (window.confirm(Confirmation) == true) {
+    try{
     
-        await axios.delete(`${baseURL}/report/${id}`)
-        .then(() =>{
-          Swal.fire({
-            title:'Customer Deleted Successfully...!',
-            icon:'success',
-            showConfirmButton:false,
-            timer:1000
-          })
-          props.setIsUpdated(true);
+      await axios.delete(`${baseURL}/report/${id}`)
+      .then(() =>{
+        Swal.fire({
+          title:'Customer Deleted Successfully...!',
+          icon:'success',
+          showConfirmButton:false,
+          timer:1000
         })
-        
-      }
-      catch(error){
-        if(error.name==='AxiosError' && error.code!=='ERR_BAD_RESPONSE'){
-          e.preventDefault();
-          console.log(error);
-          Swal.fire({
-            title:'Deleted Failed...!',
-            text:'Check the Console for Error',
-            icon:'error',
-            showConfirmButton:false,
-            timer:1000
-          })
-        }
-      }
+        setIsUpdated(true);
+      })
+      .catch(err=> console.log(err))
+
     }
-  return (
+    catch(error){
+      e.preventDefault();
+      console.log(error);
+      Swal.fire({
+        title:'Deleted Failed...!',
+        text:'Check the Console for Error',
+        icon:'error',
+        showConfirmButton:false,
+        timer:1000
+      })
+    }
+  }else {
+    Swal.fire({
+      title:'Cancelled',
+      text:'You Cancelled the Deletion!',
+      icon:'error',
+      showConfirmButton:false,
+      timer:1500
+    })
+  }
+}
+// xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+return (
     <div>
       <center>
         <NavigationButtons/>
