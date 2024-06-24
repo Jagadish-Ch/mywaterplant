@@ -75,7 +75,7 @@ async function deleteUser(e, id) {
           showConfirmButton:false,
           timer:1000
         })
-        setIsUpdated(true);
+        //setIsUpdated(true);
       })
       .catch(err=> console.log(err))
 
