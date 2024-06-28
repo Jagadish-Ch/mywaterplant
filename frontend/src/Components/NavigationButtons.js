@@ -30,7 +30,7 @@ const NavigationButtons = () => {
   const navigate=useNavigate();
   return (  
     <div>
-    {/*<div className='nav-bar nav-menu'>
+    <div className='nav-bar nav-menu'>
       <div className='logo'>
         <img className="cans-icon" src={cansIcon}/>
       </div>
@@ -45,7 +45,7 @@ const NavigationButtons = () => {
         <button className='menu-btn'><img className="menu-icon" src={menubaricon} onClick={openNavBtns}/></button>
       </div>
       
-    </div>*/}
+    </div>
     <AppBar/>
     <FinalReport/>
     

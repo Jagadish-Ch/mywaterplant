@@ -24,6 +24,7 @@ const Home = () => {
           <button className='default btn-15' onClick={()=>navigate("/report/:id")}>Report</button>
           <button className='default btn-15' onClick={()=>navigate("/pending")}>Pending</button>
         </div>
+        <p>{window.innerWidth} X {window.innerHeight}</p>
         </div>
       </div>
     </div>

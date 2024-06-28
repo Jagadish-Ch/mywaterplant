@@ -118,7 +118,7 @@ export default function SearchAppBar() {
         </React.Fragment>
       
     
-    <Box sx={{ flexGrow: 1 }}>
+    <Box sx={{ display: { xs: 'block', sm: 'none' } }}>
       <AppBar style={{backgroundColor:'#053A63'}} position="static">
         <Toolbar style={{display:'flex',justifyContent:'space-between'}}>
           
