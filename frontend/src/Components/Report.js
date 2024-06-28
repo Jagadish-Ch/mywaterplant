@@ -165,7 +165,9 @@ const Report = () => {
         <br/>
         <div id="prompt-form">
         <Dialog open={openForm} onClose={handleClose}>
-          <h1 className='order-prompt-title' style={{paddingLeft:'13%'}}>Add {` ${waterType} `} Can</h1>
+          <div className='order-prompt-title'>
+            <h2 style={{textAlign:'center'}}>Add {` ${waterType} `} Can</h2>
+          </div>
           <DialogContent >
             <ReportAddCanPrompt 
               id={id}

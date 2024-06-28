@@ -82,20 +82,20 @@ export default function SearchAppBar() {
       onClick={toggleDrawer(anchor, false)}
       onKeyDown={toggleDrawer(anchor, false)}
     >
-      <List style={{paddingBottom:'3px'}}>
-          <ListItemButton style={{justifyContent:'center'}} className='list-btn'>
+      <List style={{padding:'30px'}}>
+          <ListItemButton style={{justifyContent:'center',margin:'3px'}} className='list-btn'>
             <Link to='/home' className='s-nav-btn'>HOME</Link>
           </ListItemButton>
-          <ListItemButton style={{justifyContent:'center'}} className='list-btn'>
+          <ListItemButton style={{justifyContent:'center',margin:'3px'}} className='list-btn'>
             <Link to='/order' className='s-nav-btn'>ORDER</Link>
           </ListItemButton>
-          <ListItemButton style={{justifyContent:'center'}} className='list-btn'>
+          <ListItemButton style={{justifyContent:'center',margin:'3px'}} className='list-btn'>
             <Link to='/returncan/:id' className='s-nav-btn'>RETURN CAN</Link>
           </ListItemButton>
-          <ListItemButton style={{justifyContent:'center'}} className='list-btn'>
+          <ListItemButton style={{justifyContent:'center',margin:'3px'}} className='list-btn'>
             <Link to='/report/:id' className='s-nav-btn'>REPORT</Link>
           </ListItemButton>
-          <ListItemButton style={{justifyContent:'center'}} className='list-btn'>
+          <ListItemButton style={{justifyContent:'center',margin:'3px 0px'}} className='list-btn'>
             <Link to='/pending' className='s-nav-btn'>PENDING</Link>
           </ListItemButton>
       </List>

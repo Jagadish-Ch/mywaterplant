@@ -26,7 +26,7 @@ table{
 }
 .table, .table tbody, .table td{
     display: block;
-    max-width: 100%;
+    /*max-width: 100%;*/
     padding:3px;
     outline-width: 0.5px;
     
@@ -40,6 +40,7 @@ table{
 }
 
 .table .tbl-header{
+    font-size: 6vw;
     padding: 30px;
     border: 3px solid black;
     background-color: black;
@@ -48,9 +49,9 @@ table{
     border-top-right-radius: 40px;
 }
 .table .tbl-data{
-    font-size: 3vh;
+    font-size: 2vh;
     font-weight: 600;
-    height: 5rem;
+    /*height: 5rem;*/
     color: #433500;
     text-align: right;
     padding: 14px;

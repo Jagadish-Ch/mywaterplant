@@ -96,9 +96,13 @@
         color: black;
     }
     .s-icon{
+        border:2px solid black;
+        width: 50px;
         background-color: #2f3640;
-        
         border-radius:0px 40px 40px  0px  ;
+    }
+    .s-icon:hover {
+        background-color: rgb(165, 165, 165);
     }
     /*.dropdown{
         height: 1.2em;   

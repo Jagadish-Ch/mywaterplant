@@ -129,8 +129,9 @@ const  ReturnCan = () => {
         <br/>
         <div id="prompt-form">
         <Dialog open={openForm} onClose={handleClose}>
-        
-          <h1 className='order-prompt-title' style={{paddingLeft:'13%'}}>Return {` ${waterType} `} Can</h1>
+          <div className='order-prompt-title'>
+            <h2 style={{textAlign:'center'}}>Return {` ${waterType} `} Can</h2>
+          </div>
           <DialogContent >
             <ReturnCanFunctions 
               id={_id}

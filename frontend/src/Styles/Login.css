@@ -30,13 +30,17 @@
 }
 
 @media screen and (max-width: 600px){
+    #login-input-form{
+        align-items: center;
+    }
     .login-form{
-        margin-top: 40em;
+        margin-top: 0px;
         height:40em
     }
     .login-title{
-        margin-left: 30%;
-        font-size: 4em;
+        margin-left: 0px;
+        font-size: 15vw;
+        text-align: center;
     }
     .btn{
         display: block;
