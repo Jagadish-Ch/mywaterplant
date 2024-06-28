@@ -82,7 +82,7 @@ export default function SearchAppBar() {
       onClick={toggleDrawer(anchor, false)}
       onKeyDown={toggleDrawer(anchor, false)}
     >
-      <List style={{paddingBottom:'120px'}}>
+      <List style={{paddingBottom:'3px'}}>
           <ListItemButton style={{justifyContent:'center'}} className='list-btn'>
             <Link to='/home' className='s-nav-btn'>HOME</Link>
           </ListItemButton>
@@ -120,15 +120,8 @@ export default function SearchAppBar() {
     
     <Box sx={{ flexGrow: 1 }}>
       <AppBar style={{backgroundColor:'#053A63'}} position="static">
-        <Toolbar style={{display:'flex',justifyContent:'space-between',maxHeight:'20vh'}}>
-          <Typography
-            variant="h6"
-            noWrap
-            component="div"
-            sx={{ flexGrow: 1, display: {sm: 'block' } }}
-          >
-            <img height={60} width={80} src ={logo}/>
-          </Typography>
+        <Toolbar style={{display:'flex',justifyContent:'space-between'}}>
+          
           
           {/*<Search>
             <SearchIconWrapper>
@@ -142,15 +135,16 @@ export default function SearchAppBar() {
           </Search>*/}
           
           <IconButton
-            style={{paddingLeft:'65vw'}}
-            size="large"
-            edge="start"
+            style={{width:'100%'}}
+            size="medium"
+            edge="end"
             color="inherit"
             aria-label="open drawer"
             sx={{ mr: 2 }}
             onClick={toggleDrawer(anchor, true)}
           >
-            <img height={40} width={40} src={menuBarIcon}/>
+            <img style={{marginRight:'80%'}} height={40} width={50} src ={logo}/>
+            <img height={20} width={20} src={menuBarIcon}/>
           </IconButton>
         </Toolbar>
       </AppBar>

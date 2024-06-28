@@ -99,17 +99,18 @@ body {
   }
 
   @media screen and (max-width: 600px){
+    .home-title{
+      font-size: 5vw;
+    }
     #myVideo{
       height: 90%;
     }
     .default{
-      min-height: 8vh;
-      min-width: 40vw;
-      font-size: 5.5vw;
+      height: auto;
+      width: 40vw;
+      font-size: 4vw;
     }
     .btns{
-      
-      margin-top: 35em;
-      padding:30%
+      padding:25%
     }
   }

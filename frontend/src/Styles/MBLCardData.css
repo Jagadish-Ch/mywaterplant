@@ -4,13 +4,16 @@
     padding: 0px;
 }
 @media  screen and (max-width: 600px) {
+.report-pg-title{
+    font-size: 8vw;
+}
 table{
     margin:2em 3%;
 }
 
 .table{
     padding: 12px;
-    font-size: 6vw;
+    font-size: 4vw;
     /*max-width: fit-content;*/
     border-collapse: collapse;
 }
@@ -25,7 +28,7 @@ table{
     display: block;
     max-width: 100%;
     padding:3px;
-    outline:none;
+    outline-width: 0.5px;
     
 }
 .table tr .e-space{
@@ -45,7 +48,10 @@ table{
     border-top-right-radius: 40px;
 }
 .table .tbl-data{
-    color: black;
+    font-size: 3vh;
+    font-weight: 600;
+    height: 5rem;
+    color: #433500;
     text-align: right;
     padding: 14px;
     padding-left: 50%;
@@ -64,7 +70,7 @@ table{
     left: 0;
     width: 50%;
     padding-left: 15px;
-    font-weight: 900;
+    font-weight: 700;
     
 }
 .table .reason-block{
@@ -86,8 +92,9 @@ table{
 .table .tbl-save-btn{
     background-color: rgb(14, 154, 14);
     color: whitesmoke;
+    height: auto;
     min-width: 20vw;
-    font-size: 6vw;
+    font-size: 5vw;
     padding: 13px;
     margin:8px;
     border: 1px solid whitesmoke;
@@ -99,9 +106,10 @@ table{
 }
 .table .tbl-delete-btn{
     background-color: red;
+    height: auto;
     min-width: 15vw;
     color: whitesmoke;
-    font-size: 6vw;
+    font-size: 5vw;
     padding: 13px;
     border: 1px solid whitesmoke;
     

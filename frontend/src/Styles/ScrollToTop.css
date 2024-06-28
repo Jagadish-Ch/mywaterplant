@@ -11,8 +11,8 @@
 }
 
 .up-arrow{
-    height:8em;
-    width: 7em;
+    max-height:10vh;
+    max-width: 10vw;
     border-radius: 100%;
 }
 

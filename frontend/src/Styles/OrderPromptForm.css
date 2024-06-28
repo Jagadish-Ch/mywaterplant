@@ -130,16 +130,13 @@ div.input-block input::selection{
 
 @media screen and (max-width: 600px){ /*479*/
   .order-pg1{
-    margin-top: 170%;
-    max-height: 40vh; 
+    height: auto; 
     max-width: 90vw;
-    font-size: 10vw;
   }
   .order-title{
     font-size: 10vw;
-    
-    margin-bottom: 30px;
-    
+    padding: 0px;
+    margin-bottom: 50%;
   }
 
 

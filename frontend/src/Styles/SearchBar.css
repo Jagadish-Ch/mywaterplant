@@ -1,3 +1,6 @@
+.mbl-searchBox{
+    display: none;
+}
 .searchBox {
     position: absolute;
     top: 24%;
@@ -70,7 +73,34 @@
 }
 
 @media screen and (max-width: 600px){ /*479*/
-    .dropdown{
+    .searchBox{
+        display: none;
+    }
+    .mbl-searchBox{
+        display: flex;
+        padding: 5%;
+    }
+    .select-dd{
+        width: 25%;
+        background-color: black;
+        color: whitesmoke;
+        border-radius:40px 0px 0px 40px;
+    }
+    .mbl-sb-input{
+        width:80%;
+        padding: 8px;
+        font-size: large;
+        font-weight: 600;
+        border: 2px solid black;
+        background-color: #b4b3b3;
+        color: black;
+    }
+    .s-icon{
+        background-color: #2f3640;
+        
+        border-radius:0px 40px 40px  0px  ;
+    }
+    /*.dropdown{
         height: 1.2em;   
     }
     .searchBox:hover > .dropdown {
@@ -101,6 +131,6 @@
     }
     .search-icon{
         height: 3em;
-    }
+    }*/
     
 }

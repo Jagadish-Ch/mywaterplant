@@ -133,17 +133,18 @@ img.menu-icon{
 /* Home Page */
 .empty-space{
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   gap: 10px;
   grid-auto-rows: 200px;
   grid-template-areas:
-    ". a a ."
-    ". a a .";
+    ". . a ."
+    ". . a .";
 }
 .center-box{
   grid-area: a;
-  align-self: center;
-  justify-self: center;
+  align-content: center; /**/
+  justify-content: center;
+  max-width: max-content;
   border:3px solid black;
   border-top-right-radius: 25%;
   border-bottom-left-radius: 25%;
@@ -158,13 +159,24 @@ img.menu-icon{
 }
 /* Nav Buttons */
 @media screen and (max-width: 600px){
+  .empty-space{
+    display: block;
+    padding: 5%;
+  }
+  .center-box{
+    align-items: center;
+    justify-content: center;
+  }
   .nav-bar{
     display: none;
   }
   .btn-2{
     width: 35vw;
-    height: 8vh;
+    height: auto;
     font-size: 7vw;
+  }
+  .custom-btn{
+    padding:7px
   }
   /*.empty-space.order{
     margin-top: -25%;
