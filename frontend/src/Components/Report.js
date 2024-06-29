@@ -38,12 +38,35 @@ const Report = () => {
   // ==================================================================
 
   // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX DELETE USER XXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-  async function deleteUser(e, id) {
+  async function deleteUser(e, id, DateTime, Name, MobileNo, Address, WaterType, CanNo, TotalCans, ReturnedCanNo, ReturnedCans, PendingCanNo, RemainingCans, Amount, PaidOrNot) {
   
     let Confirmation = "Do you want to Delete...!";
     if (window.confirm(Confirmation) == true) {
+      const date=new Date().toLocaleDateString()
+      const options = { timeStyle: 'short', hour12: true };
+      const time=new Date().toLocaleTimeString('en-US', options)
+      const DeletedDateTimeStr = `${date} - (${time})`
+
+      const userDeleteData={
+        "డిలీట్ చేసిన Date-Time":DeletedDateTimeStr,
+        DateTime,
+        Name, 
+        MobileNo, 
+        Address, 
+        WaterType, 
+        "ఇచ్చిన క్యాన్ నంబర్": CanNo, 
+        "ఇచ్చిన క్యాన్లు": TotalCans,
+        "తిరిగి ఇచ్చిన క్యాన్ నంబర్": ReturnedCanNo,
+        "తిరిగి ఇచ్చిన క్యాన్లు": ReturnedCans, 
+        "Pending క్యాన్ నంబర్": PendingCanNo, 
+        "Pending క్యాన్లు": RemainingCans, 
+        "ఇచ్చిన Amount": Amount, 
+        "Paid / NotPaid": PaidOrNot
+      }
+      console.log(userDeleteData)
       try{
       
+        await axios.post('https://sheet.best/api/sheets/7b4327a8-9bac-4954-96b7-bd0ed62cbac9', userDeleteData)
         await axios.delete(`${baseURL}/report/${id}`)
         .then(() =>{
           Swal.fire({
@@ -231,7 +254,24 @@ const Report = () => {
                             )}>
                             Add
                   </button></Link><br/><br/>
-                  <Link to={`/report/${user._id}`}><button className="action red-btn tbl-delete-btn" type="button" onClick={(e) => deleteUser(e, user._id)}>Delete</button></Link>
+                  <Link to={`/report/${user._id}`}><button className="action red-btn tbl-delete-btn" type="button"
+                   onClick={(e) => deleteUser(
+                    e, user._id, 
+                    user.DateTime,
+                    user.Name,
+                    user.MobileNo,
+                    user.Address,
+                    user.WaterType+" Water",
+                    user.CanNo.join(", "),
+                    user.TotalCans,
+                    user.ReturnedCanNo.join(", "),
+                    user.ReturnedCans,
+                    PendingCanNo.join(", "),
+                    RemainingCans,
+                    user.Amount,
+                    user.PaidOrNot
+
+                  )}>Delete</button></Link>
               </td> 
             </tr>
             

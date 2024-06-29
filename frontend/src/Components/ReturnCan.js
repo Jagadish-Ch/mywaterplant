@@ -58,12 +58,35 @@ const  ReturnCan = () => {
   // ========================================================================
 
   // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX DELETE USER XXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-  async function deleteUser(e, id) {
+  async function deleteUser(e, id, DateTime, Name, MobileNo, Address, WaterType, CanNo, TotalCans, ReturnedCanNo, ReturnedCans, PendingCanNo, RemainingCans, Amount, PaidOrNot) {
   
     let Confirmation = "Do you want to Delete...!";
     if (window.confirm(Confirmation) == true) {
+      const date=new Date().toLocaleDateString()
+      const options = { timeStyle: 'short', hour12: true };
+      const time=new Date().toLocaleTimeString('en-US', options)
+      const DeletedDateTimeStr = `${date} - (${time})`
+
+      const userDeleteData={
+        "డిలీట్ చేసిన Date-Time":DeletedDateTimeStr,
+        DateTime,
+        Name, 
+        MobileNo, 
+        Address, 
+        WaterType, 
+        "ఇచ్చిన క్యాన్ నంబర్": CanNo, 
+        "ఇచ్చిన క్యాన్లు": TotalCans,
+        "తిరిగి ఇచ్చిన క్యాన్ నంబర్": ReturnedCanNo,
+        "తిరిగి ఇచ్చిన క్యాన్లు": ReturnedCans, 
+        "Pending క్యాన్ నంబర్": PendingCanNo, 
+        "Pending క్యాన్లు": RemainingCans, 
+        "ఇచ్చిన Amount": Amount, 
+        "Paid / NotPaid": PaidOrNot
+      }
+      console.log(userDeleteData)
       try{
       
+        await axios.post('https://sheet.best/api/sheets/7b4327a8-9bac-4954-96b7-bd0ed62cbac9', userDeleteData)
         await axios.delete(`${baseURL}/report/${id}`)
         .then(() =>{
           Swal.fire({
@@ -74,19 +97,19 @@ const  ReturnCan = () => {
           })
           setIsUpdated(true);
         })
+        .catch(err=> console.log(err))
 
       }
       catch(error){
-        if(error.name==='AxiosError' && error.code!=='ERR_BAD_RESPONSE'){
-          console.log(error);
-          Swal.fire({
-            title:'Deleted Failed...!',
-            text:'Check the Console for Error',
-            icon:'error',
-            showConfirmButton:false,
-            timer:1000
-          })
-        }
+        e.preventDefault();
+        console.log(error);
+        Swal.fire({
+          title:'Deleted Failed...!',
+          text:'Check the Console for Error',
+          icon:'error',
+          showConfirmButton:false,
+          timer:1000
+        })
       }
     }else {
       Swal.fire({
@@ -186,7 +209,23 @@ const  ReturnCan = () => {
                             )}>
                             Return
                           </button></Link><br/><br/>
-                          <button className='action red-btn tbl-delete-btn' type="submit" onClick={(e) => deleteUser(e,user._id)}>Delete</button></td>
+                          <button className='action red-btn tbl-delete-btn' type="submit"
+                           onClick={(e) => deleteUser(
+                            e, user._id, 
+                            user.DateTime,
+                            user.Name,
+                            user.MobileNo,
+                            user.Address,
+                            user.WaterType+" Water",
+                            user.CanNo.join(", "),
+                            user.TotalCans,
+                            user.ReturnedCanNo.join(", "),
+                            user.ReturnedCans,
+                            PendingCanNo.join(", "),
+                            NotReturnedCans,
+                            user.Amount,
+                            user.PaidOrNot
+                          )}>Delete</button></td>
                           
                         </tr>
                       

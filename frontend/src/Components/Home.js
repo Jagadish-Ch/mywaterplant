@@ -23,6 +23,7 @@ const Home = () => {
           <button className='default btn-15' onClick={()=>navigate("/returncan/:id")}>Return Can</button>
           <button className='default btn-15' onClick={()=>navigate("/report/:id")}>Report</button>
           <button className='default btn-15' onClick={()=>navigate("/pending")}>Pending</button>
+          <button className='default btn-15'><a className='deleted-history' href='https://docs.google.com/spreadsheets/d/11RVlATUi8cN8EmpBfqV7VS_S8-ISwjlOaGi4kobuA3k/edit?gid=0#gid=0' target='_blank'>Del-Hist</a></button>
         </div>
         <p>{window.innerWidth} X {window.innerHeight}</p>
         </div>

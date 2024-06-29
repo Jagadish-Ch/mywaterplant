@@ -39,6 +39,13 @@ img.menu-icon{
   display: grid;
   justify-content: center;
 }
+.del-history{
+  text-decoration:none;
+  color:#dae8ec;
+}
+.del-history:hover{
+  color: rgb(3, 39, 70);
+}
 .custom-btn {
   color: #fff;
   width: 140px;

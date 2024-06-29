@@ -42,6 +42,13 @@ body {
     height: 100%;
   align-items: center;
 }
+.deleted-history{
+  text-decoration: none;
+  color: #260483;
+}
+.deleted-history:hover{
+  color:#fff
+}
 .default {
   color: #fff;
   width: 160px;

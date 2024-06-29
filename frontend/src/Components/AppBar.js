@@ -98,6 +98,9 @@ export default function SearchAppBar() {
           <ListItemButton style={{justifyContent:'center',margin:'3px 0px'}} className='list-btn'>
             <Link to='/pending' className='s-nav-btn'>PENDING</Link>
           </ListItemButton>
+          <ListItemButton style={{justifyContent:'center',margin:'3px 0px'}} className='list-btn'>
+            <a href='https://docs.google.com/spreadsheets/d/11RVlATUi8cN8EmpBfqV7VS_S8-ISwjlOaGi4kobuA3k/edit?gid=0#gid=0' target='_blank' className='s-nav-btn'>DEL HISTORY</a>
+          </ListItemButton>
       </List>
     </Box>
   );

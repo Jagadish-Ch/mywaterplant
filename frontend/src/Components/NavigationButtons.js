@@ -40,6 +40,7 @@ const NavigationButtons = () => {
         <button className='custom-btn btn-16' onClick={()=>navigate("/returncan/:id")}>Return Can</button>
         <button className='custom-btn btn-16' onClick={()=>navigate("/report/:id")}>Report</button>
         <button className='custom-btn btn-16' onClick={()=>navigate("/pending")}>Pending</button>
+        <button className='custom-btn btn-16'><a className='del-history' href='https://docs.google.com/spreadsheets/d/11RVlATUi8cN8EmpBfqV7VS_S8-ISwjlOaGi4kobuA3k/edit?gid=0#gid=0' target='_blank'>DEL-HIST</a></button>
       </div>
       <div className='menu'>
         <button className='menu-btn'><img className="menu-icon" src={menubaricon} onClick={openNavBtns}/></button>
