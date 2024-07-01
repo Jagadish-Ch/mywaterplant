@@ -3,7 +3,6 @@ import axios from 'axios';
 import NavigationButtons from './NavigationButtons';
 import { baseURL } from './baseURL';
 import Swal from 'sweetalert2';
-import SMTables from './SMTables';
 import ScrollToTop from './ScrollToTop';
 import SearchBar from './SearchBar';
 import '../Styles/MBLCardData.css'
@@ -169,7 +168,7 @@ return (
                       <td className='tbl-data' aria-label='Water Type' >{user.WaterType}</td>
                       <td className='tbl-data' aria-label='Pending క్యాన్ నంబర్'  style={{backgroundColor:"rgb(248, 173, 173)"}}>{PendingCanNo.join(", ")}</td>
                       <td className='tbl-data' aria-label='Pending క్యాన్లు'  style={{backgroundColor:"rgb(248, 173, 173)"}}>{user.TotalCans-user.ReturnedCans}</td>
-                      <td className='tbl-data reason-block' aria-label='కారణం' >{Reason}<br/>{OneCanAmount}</td>
+                      <td className='tbl-data reason-block' aria-label='' >{Reason}<br/>{OneCanAmount}</td>
                       <td className='action-btn'><button className="action red-btn tbl-delete-btn" type="button" 
                       onClick={(e) => deleteUser(
                         e, user._id, 
@@ -232,7 +231,7 @@ return (
                       <td className='tbl-data' aria-label='Water Type' >{user.WaterType}</td>
                       <td className='tbl-data' aria-label='Pending క్యాన్ నంబర్'  style={{backgroundColor:"rgb(248, 173, 173)"}}>{PendingCanNo.join(", ")}</td>
                       <td className='tbl-data' aria-label='Pending క్యాన్లు'  style={{backgroundColor:"rgb(248, 173, 173)"}}>{user.TotalCans-user.ReturnedCans}</td>
-                      <td className='tbl-data reason-block' aria-label='కారణం' >{Reason}<br/>{OneCanAmount}</td>
+                      <td className='tbl-data reason-block' aria-label='' >{Reason}<br/>{OneCanAmount}</td>
                       <td className='action-btn'><button className="action red-btn tbl-delete-btn" type="button" 
                       onClick={(e) => deleteUser(
                         e, user._id, 
