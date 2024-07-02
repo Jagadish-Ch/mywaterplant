@@ -86,6 +86,7 @@ async function deleteUser(e, id, DateTime, Name, MobileNo, Address, WaterType, C
       "ఇచ్చిన Amount": Amount, 
       "Paid / NotPaid": PaidOrNot
     }
+    console.log(userDeleteData)
     try{
     
       await axios.post('https://sheet.best/api/sheets/7b4327a8-9bac-4954-96b7-bd0ed62cbac9', userDeleteData)
